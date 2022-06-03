@@ -1,0 +1,2 @@
+# Terraform docker image
+Terraformなどのデプロイツールをまとめたイメージ
