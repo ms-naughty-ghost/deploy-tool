@@ -1,4 +1,9 @@
 # Terraform docker image
-Terraformなどのデプロイツールをまとめたイメージ
+デプロイツールをまとめたイメージ
 # tools
 - terraform
+- ansible
+- aws cli
+- azure cli
+- gcloud cli
+- docker engine
