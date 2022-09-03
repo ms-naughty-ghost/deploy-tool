@@ -1,17 +1,10 @@
-FROM ghcr.io/homebrew/ubuntu20.04:3.5.10
+FROM ubuntu:22.04
 
 ENV TERRAFORM_VERZION 1.2.8
 ENV ANSIBLE_VERSION 6.3.0
-ENV AZURECLI_VERSION 1
-ENV AWSCLI_VERSION 1
-ENV GCPCLI_VERSION 1
 ENV DOCKER_COMPOSE 1.29.2
 ENV DOCKER_ENGINE 6.0.0
 
-RUN brew install autifyhq/tap/autify-cli
-
-WORKDIR /
-USER root
 RUN apt update && \
     apt install -y \
     gnupg \
@@ -42,4 +35,5 @@ RUN apt update && \
   echo "Install Gcp cli" && \
     echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add - && \
-    apt update && apt install google-cloud-sdk
+    apt update && apt install google-cloud-sdk && \
+  apt clean
